@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDFC Leads Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="login" class="login-container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="handleLogin()">Login</button>
+        <p id="error" style="color: red; display: none;">Invalid credentials</p>
+    </div>
+    <div id="dashboard" class="container" style="display: none;">
+        <h1>HDFC Leads Dashboard</h1>
+        <div class="stats">
+            <div>Total Leads: <span id="total-leads"></span></div>
+            <div>Progress: <progress id="progress" max="100"></progress> <span id="progress-text"></span></div>
+            <div>Conversion Rate: <span id="conv-rate"></span></div>
+        </div>
+        <div class="charts">
+            <canvas id="timeChart"></canvas>
+            <canvas id="sourceChart"></canvas>
+            <canvas id="pipelineChart"></canvas>
+        </div>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>

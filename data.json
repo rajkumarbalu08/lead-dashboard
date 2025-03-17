@@ -1,0 +1,6 @@
+{
+    "totalLeads": 75,
+    "leadsOverTime": [10, 15, 20, 25, 5],
+    "leadSources": { "Social Media": 50, "Referral": 25 },
+    "pipeline": { "New": 40, "Contacted": 20, "In Progress": 10, "Converted": 5 }
+}
