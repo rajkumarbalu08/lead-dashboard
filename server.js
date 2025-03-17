@@ -1,16 +1,18 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.static("public"));
 app.use(express.json());
 
 const leadsData = require("./data.json");
+const validUser = { username: process.env.USERNAME, password: process.env.PASSWORD };
 
 app.post("/login", (req, res) => {
     const { username, password } = req.body;
-    if (username === "hdfc_team" && password === "leads2025") {
+    if (username === validUser.username && password === validUser.password) {
         res.json({ success: true });
     } else {
         res.json({ success: false });

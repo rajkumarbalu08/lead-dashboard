@@ -1,18 +1,17 @@
 function handleLogin() {
-    console.log("Button clicked!"); // Debug
+    console.log("Button clicked!");
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
+    const button = document.querySelector("button");
+    button.textContent = "Logging in..."; // Loading state
     fetch("/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password })
     })
-    .then(response => {
-        console.log("Fetch response:", response); // Debug
-        return response.json();
-    })
+    .then(response => response.json())
     .then(result => {
-        console.log("Server said:", result); // Debug
+        button.textContent = "Login"; // Reset
         if (result.success) {
             document.getElementById("login").style.display = "none";
             document.getElementById("dashboard").style.display = "block";
@@ -21,7 +20,10 @@ function handleLogin() {
             document.getElementById("error").style.display = "block";
         }
     })
-    .catch(error => console.error("Error:", error)); // Debug
+    .catch(error => {
+        button.textContent = "Login";
+        console.error("Error:", error);
+    });
 }
 
 function loadDashboard() {
